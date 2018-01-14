@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B09B37C200B0F8A00627414 /* ConnectMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B09B37A200B0F8A00627414 /* ConnectMe.xcdatamodeld */; };
+		9B418B61200BAC1300A60E6F /* AllRemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B418B60200BAC1300A60E6F /* AllRemindersTableViewController.swift */; };
 		9BE0A74E200B027B00F4E474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A74D200B027B00F4E474 /* AppDelegate.swift */; };
-		9BE0A750200B027B00F4E474 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A74F200B027B00F4E474 /* ViewController.swift */; };
+		9BE0A750200B027B00F4E474 /* AddNewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A74F200B027B00F4E474 /* AddNewReminderViewController.swift */; };
 		9BE0A753200B027B00F4E474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A751200B027B00F4E474 /* Main.storyboard */; };
-		9BE0A756200B027B00F4E474 /* ConnectMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A754200B027B00F4E474 /* ConnectMe.xcdatamodeld */; };
 		9BE0A758200B027B00F4E474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A757200B027B00F4E474 /* Assets.xcassets */; };
 		9BE0A75B200B027B00F4E474 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A759200B027B00F4E474 /* LaunchScreen.storyboard */; };
 		9BE0A766200B027B00F4E474 /* ConnectMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A765200B027B00F4E474 /* ConnectMeTests.swift */; };
@@ -35,11 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B09B37B200B0F8A00627414 /* ConnectMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConnectMe.xcdatamodel; sourceTree = "<group>"; };
+		9B418B60200BAC1300A60E6F /* AllRemindersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRemindersTableViewController.swift; sourceTree = "<group>"; };
 		9BE0A74A200B027B00F4E474 /* ConnectMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE0A74D200B027B00F4E474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9BE0A74F200B027B00F4E474 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9BE0A74F200B027B00F4E474 /* AddNewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderViewController.swift; sourceTree = "<group>"; };
 		9BE0A752200B027B00F4E474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9BE0A755200B027B00F4E474 /* ConnectMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConnectMe.xcdatamodel; sourceTree = "<group>"; };
 		9BE0A757200B027B00F4E474 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BE0A75A200B027B00F4E474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE0A75C200B027B00F4E474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,13 +101,11 @@
 		9BE0A74C200B027B00F4E474 /* ConnectMe */ = {
 			isa = PBXGroup;
 			children = (
-				9BE0A74D200B027B00F4E474 /* AppDelegate.swift */,
-				9BE0A74F200B027B00F4E474 /* ViewController.swift */,
-				9BE0A751200B027B00F4E474 /* Main.storyboard */,
-				9BE0A757200B027B00F4E474 /* Assets.xcassets */,
-				9BE0A759200B027B00F4E474 /* LaunchScreen.storyboard */,
+				9BE0A781200B02D500F4E474 /* SupportingFiles */,
+				9BE0A780200B02C300F4E474 /* Model */,
+				9BE0A77F200B02BA00F4E474 /* View */,
+				9BE0A77E200B02A800F4E474 /* Controller */,
 				9BE0A75C200B027B00F4E474 /* Info.plist */,
-				9BE0A754200B027B00F4E474 /* ConnectMe.xcdatamodeld */,
 			);
 			path = ConnectMe;
 			sourceTree = "<group>";
@@ -126,6 +126,41 @@
 				9BE0A772200B027C00F4E474 /* Info.plist */,
 			);
 			path = ConnectMeUITests;
+			sourceTree = "<group>";
+		};
+		9BE0A77E200B02A800F4E474 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9BE0A74F200B027B00F4E474 /* AddNewReminderViewController.swift */,
+				9B418B60200BAC1300A60E6F /* AllRemindersTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9BE0A77F200B02BA00F4E474 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9BE0A759200B027B00F4E474 /* LaunchScreen.storyboard */,
+				9BE0A751200B027B00F4E474 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9BE0A780200B02C300F4E474 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B09B37A200B0F8A00627414 /* ConnectMe.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9BE0A781200B02D500F4E474 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9BE0A74D200B027B00F4E474 /* AppDelegate.swift */,
+				9BE0A757200B027B00F4E474 /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +297,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BE0A756200B027B00F4E474 /* ConnectMe.xcdatamodeld in Sources */,
-				9BE0A750200B027B00F4E474 /* ViewController.swift in Sources */,
+				9B09B37C200B0F8A00627414 /* ConnectMe.xcdatamodeld in Sources */,
+				9B418B61200BAC1300A60E6F /* AllRemindersTableViewController.swift in Sources */,
+				9BE0A750200B027B00F4E474 /* AddNewReminderViewController.swift in Sources */,
 				9BE0A74E200B027B00F4E474 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,12 +600,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9BE0A754200B027B00F4E474 /* ConnectMe.xcdatamodeld */ = {
+		9B09B37A200B0F8A00627414 /* ConnectMe.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9BE0A755200B027B00F4E474 /* ConnectMe.xcdatamodel */,
+				9B09B37B200B0F8A00627414 /* ConnectMe.xcdatamodel */,
 			);
-			currentVersion = 9BE0A755200B027B00F4E474 /* ConnectMe.xcdatamodel */;
+			currentVersion = 9B09B37B200B0F8A00627414 /* ConnectMe.xcdatamodel */;
 			path = ConnectMe.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
