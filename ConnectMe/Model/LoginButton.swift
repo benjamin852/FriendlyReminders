@@ -9,11 +9,12 @@
 import UIKit
 
 class LoginButton: UIButton {
-    var action: (()->())?
+//    var action: (()->())?
     
     func buttonTapped() {
 //        self.action = action
         self.addTarget(self, action: #selector(LoginButton.tapped), for: .touchUpInside)
+        
     }
     
     @objc func tapped() {

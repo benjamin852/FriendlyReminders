@@ -10,11 +10,12 @@ import UIKit
 
 class HomePageViewController: UIViewController {
 
-    
+
     let friendlyReminders : UILabel = {
        let friendlyRemindersLabel = UILabel()
         friendlyRemindersLabel.text = "FRIENDLY REMINDERS"
         friendlyRemindersLabel.font = UIFont.italicSystemFont(ofSize: 30)
+        friendlyRemindersLabel.adjustsFontSizeToFitWidth = true
         friendlyRemindersLabel.translatesAutoresizingMaskIntoConstraints = false
         friendlyRemindersLabel.textColor = ConnectMeConstants.connectMeColours.lightBlueColour
         return friendlyRemindersLabel   
@@ -25,25 +26,48 @@ class HomePageViewController: UIViewController {
         quoteText.text = "\"There are tall ships and small ships and ships that sail the sea, but the best ships are friendships and forever they shall be!\""
         quoteText.translatesAutoresizingMaskIntoConstraints = false
         quoteText.font = UIFont.boldSystemFont(ofSize: 28)
+        quoteText.adjustsFontSizeToFitWidth = true
         quoteText.numberOfLines = 5
         quoteText.textColor = ConnectMeConstants.connectMeColours.lightBlueColour
         return quoteText
     }()
     
     let friendsImage : UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "pussies"))
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.adjustsImageSizeForAccessibilityContentSizeCategory = true
-        return image
+        let friendsPic = UIImageView(image: #imageLiteral(resourceName: "pussies"))
+        friendsPic.translatesAutoresizingMaskIntoConstraints = false
+        friendsPic.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        return friendsPic
     }()
     
+    
     let addReminder : UIBarButtonItem = {
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewReminder))
-
-        add.width = 20
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(HomePageViewController.addNewReminder))
         return add
     }()
-  
+    
+    
+    
+    @objc func addNewReminder()  {
+      print ("PATS FOR SUPERBOWL")
+    }
+    
+    
+    let calendarButton : ConnectMeBarButton = {
+        let calendar = ConnectMeBarButton.init(title: "Calendar", style: UIBarButtonItemStyle.plain, target: self, action: #selector(buttonTapped))
+        return calendar
+    }()
+    
+    let settingsButton : ConnectMeBarButton = {
+        let settings = ConnectMeBarButton.init(title: "Settings", style: UIBarButtonItemStyle.plain, target: self, action: #selector(buttonTapped))
+        return settings
+    }()
+    
+    
+    let supportButton : ConnectMeBarButton = {
+        let support = ConnectMeBarButton.init(title: "Support", style: UIBarButtonItemStyle.plain, target: self, action: #selector(buttonTapped))
+        return support
+    }()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(quoteTextLabel)
@@ -58,15 +82,15 @@ class HomePageViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.barTintColor = UIColor.gray
-        self.navigationItem.leftBarButtonItem = addReminder
+        self.navigationItem.leftBarButtonItems = [addReminder, calendarButton, settingsButton, supportButton]
+        self.navigationController?.navigationBar.barTintColor = ConnectMeConstants.connectMeColours.darkBlueColour
+        
+        let height : CGFloat = 30
+        let bounds = self.navigationController!.navigationBar.bounds
+        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
+
     }
-    
-    
-    @objc func addNewReminder()  {
-        //finish up later
-    }
-    
+
     
     private func setupLabels() {
         quoteTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -133,4 +157,10 @@ class HomePageViewController: UIViewController {
                                             constant: 170)
         imageYaxis.isActive = true
     }
+    
+    
+    @objc func buttonTapped() {
+        print ("That guy who shoved in Eilat is a huge pussy")
+    }
+    
 }

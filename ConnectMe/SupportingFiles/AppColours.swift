@@ -12,5 +12,6 @@ import UIKit
 struct ConnectMeConstants {
     struct connectMeColours {
         static let lightBlueColour = UIColor(hex: 0x33D4FF)
+        static let darkBlueColour = UIColor(hex: 0x042371)
     }
 }
