@@ -13,7 +13,7 @@ class ConnectMeBarButton: UIBarButtonItem {
     override init() {
         super.init()
         self.tintColor = ConnectMeConstants.connectMeColours.lightBlueColour
-        setTitleTextAttributes([ NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 20)], for: UIControlState.normal)
+        setTitleTextAttributes([ NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 26)], for: UIControlState.normal)
     }
     
     required init?(coder aDecoder: NSCoder) {

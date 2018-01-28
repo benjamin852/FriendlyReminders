@@ -75,7 +75,10 @@ class HomePageViewController: UIViewController {
         view.addSubview(friendsImage)
         self.setupLabels()
         self.setupImageLayout()
-        self.view.backgroundColor = UIColor.gray
+        
+        let background = CAGradientLayer().backgroundColour()
+        background.frame = self.view.bounds
+        self.view.layer.insertSublayer(background, at: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,7 +86,7 @@ class HomePageViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.leftBarButtonItems = [addReminder, calendarButton, settingsButton, supportButton]
-        self.navigationController?.navigationBar.barTintColor = ConnectMeConstants.connectMeColours.darkBlueColour
+        self.navigationController?.navigationBar.barTintColor = ConnectMeConstants.connectMeColours.whiteColor
         
         let height : CGFloat = 30
         let bounds = self.navigationController!.navigationBar.bounds

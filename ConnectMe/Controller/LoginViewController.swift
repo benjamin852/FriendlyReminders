@@ -108,7 +108,15 @@ class LoginViewController: UIViewController {
         self.setupLayoutTextFields()
         self.setupButtonLayout()
         self.setupLabelLayout()
-        self.view.backgroundColor = UIColor.gray
+        
+        let background = CAGradientLayer().backgroundColour()
+        background.frame = self.view.bounds
+        self.view.layer.insertSublayer(background, at: 0)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -160,7 +168,7 @@ class LoginViewController: UIViewController {
                                                  attribute: .leading,
                                                  multiplier: 1, constant: 70)
         passwordLeading.isActive = true
-        passwordTextField.setBottomBorder()
+        passwordTextField.setBottomBorderPas()
     }
     private func setupButtonLayout() {
         let loginButtonYaxis = NSLayoutConstraint(item: loginButton,
