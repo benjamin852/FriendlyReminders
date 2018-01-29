@@ -11,26 +11,22 @@ import UIKit
 class MenuTableViewCell: UITableViewCell {
 
 
-    let calendarButton : UIButton = {
-        let calendar = UIButton(type: .system)
-        calendar.setTitle("Calendar", for: .normal)
-        calendar.translatesAutoresizingMaskIntoConstraints = false
-        return calendar
+    let textCell : UIButton = {
+        let name = UIButton(type: .system)
+        name.translatesAutoresizingMaskIntoConstraints = false
+        return name
     }()
     
-    let settingsButton : UIButton = {
-        let settings = UIButton()
-        settings.setTitle("Settings", for: .normal)
-        return settings
+    let setReminderButton : UIButton = {
+        let setReminder = UIButton()
+        setReminder.translatesAutoresizingMaskIntoConstraints = false
+        setReminder.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+        setReminder.setTitleColor(.gray, for: .normal)
+        setReminder.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
+        setReminder.layer.cornerRadius = 20
+        setReminder.layer.borderColor = UIColor.clear.cgColor
+        return setReminder
     }()
-    
-    
-    let supportButton : UIButton = {
-        let support = UIButton()
-        support.setTitle("Support", for: .normal)
-        return support
-    }()
-    
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:)")
@@ -43,14 +39,16 @@ class MenuTableViewCell: UITableViewCell {
     }
     
     func setupViews()  {
-        addSubview(calendarButton)
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: ("H:|-16-[v0]|"), options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": calendarButton]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: ("V:|[v0]|"), options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": calendarButton]))
-        calendarButton.setTitleColor(ConnectMeConstants.connectMeColours.lightBlueColour, for: .normal)
+        addSubview(textCell)
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: ("H:|-16-[v0]|"), options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": textCell]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: ("V:|[v0]|"), options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": textCell]))
+        textCell.setTitleColor(ConnectMeConstants.connectMeColours.lightBlueColour, for: .normal)
         
-        calendarButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        textCell.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         
-        calendarButton.addTarget(self, action: #selector(MenuTableViewCell.buttonTapped), for: .touchUpInside)
+        textCell.addTarget(self, action: #selector(MenuTableViewCell.buttonTapped), for: .touchUpInside)
+        
+        addSubview(setReminderButton)
     }
     
     @objc func buttonTapped() {

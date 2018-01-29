@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddNewReminderViewController: UIViewController {
+class AddNewCoreDataReminderViewController: UIViewController {
 
     var moc : NSManagedObjectContext!
     

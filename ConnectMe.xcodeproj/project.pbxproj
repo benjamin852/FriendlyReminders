@@ -13,10 +13,10 @@
 		9B65E1762012B2B50085C61D /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65E1752012B2B50085C61D /* HomePageViewController.swift */; };
 		9B65E1782012B3D30085C61D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65E1772012B3D30085C61D /* Extensions.swift */; };
 		9BC3EEE62016D70800EEC473 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3EEE52016D70800EEC473 /* MenuTableViewCell.swift */; };
-		9BC3EEE82017BAC400EEC473 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3EEE72017BAC400EEC473 /* PracticeViewController.swift */; };
 		9BC3EEEE201930D000EEC473 /* ConnectMeBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3EEED201930D000EEC473 /* ConnectMeBarButton.swift */; };
+		9BC3EEF4201E753200EEC473 /* AddNewReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3EEF3201E753200EEC473 /* AddNewReminderTableViewController.swift */; };
 		9BE0A74E200B027B00F4E474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A74D200B027B00F4E474 /* AppDelegate.swift */; };
-		9BE0A750200B027B00F4E474 /* AddNewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A74F200B027B00F4E474 /* AddNewReminderViewController.swift */; };
+		9BE0A750200B027B00F4E474 /* AddNewCoreDataReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A74F200B027B00F4E474 /* AddNewCoreDataReminderViewController.swift */; };
 		9BE0A753200B027B00F4E474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A751200B027B00F4E474 /* Main.storyboard */; };
 		9BE0A758200B027B00F4E474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A757200B027B00F4E474 /* Assets.xcassets */; };
 		9BE0A75B200B027B00F4E474 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A759200B027B00F4E474 /* LaunchScreen.storyboard */; };
@@ -50,11 +50,11 @@
 		9B65E1752012B2B50085C61D /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		9B65E1772012B3D30085C61D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9BC3EEE52016D70800EEC473 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
-		9BC3EEE72017BAC400EEC473 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		9BC3EEED201930D000EEC473 /* ConnectMeBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectMeBarButton.swift; sourceTree = "<group>"; };
+		9BC3EEF3201E753200EEC473 /* AddNewReminderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderTableViewController.swift; sourceTree = "<group>"; };
 		9BE0A74A200B027B00F4E474 /* ConnectMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE0A74D200B027B00F4E474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9BE0A74F200B027B00F4E474 /* AddNewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderViewController.swift; sourceTree = "<group>"; };
+		9BE0A74F200B027B00F4E474 /* AddNewCoreDataReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCoreDataReminderViewController.swift; sourceTree = "<group>"; };
 		9BE0A752200B027B00F4E474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BE0A757200B027B00F4E474 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BE0A75A200B027B00F4E474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -117,6 +117,8 @@
 		9BE0A74C200B027B00F4E474 /* ConnectMe */ = {
 			isa = PBXGroup;
 			children = (
+				9B418B60200BAC1300A60E6F /* AllRemindersTableViewController.swift */,
+				9BE0A74F200B027B00F4E474 /* AddNewCoreDataReminderViewController.swift */,
 				9BE0A781200B02D500F4E474 /* SupportingFiles */,
 				9BE0A780200B02C300F4E474 /* Model */,
 				9BE0A77F200B02BA00F4E474 /* View */,
@@ -147,11 +149,9 @@
 		9BE0A77E200B02A800F4E474 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9BE0A74F200B027B00F4E474 /* AddNewReminderViewController.swift */,
 				9B65E1752012B2B50085C61D /* HomePageViewController.swift */,
 				9B418B64200CF62B00A60E6F /* LoginViewController.swift */,
-				9B418B60200BAC1300A60E6F /* AllRemindersTableViewController.swift */,
-				9BC3EEE72017BAC400EEC473 /* PracticeViewController.swift */,
+				9BC3EEF3201E753200EEC473 /* AddNewReminderTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -159,6 +159,7 @@
 		9BE0A77F200B02BA00F4E474 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9BF1BF472010FC7D00498E3B /* LoginButton.swift */,
 				9BE0A759200B027B00F4E474 /* LaunchScreen.storyboard */,
 				9BE0A751200B027B00F4E474 /* Main.storyboard */,
 				9B65E1772012B3D30085C61D /* Extensions.swift */,
@@ -171,7 +172,6 @@
 		9BE0A780200B02C300F4E474 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9BF1BF472010FC7D00498E3B /* LoginButton.swift */,
 				9B09B37A200B0F8A00627414 /* ConnectMe.xcdatamodeld */,
 			);
 			path = Model;
@@ -323,14 +323,14 @@
 			files = (
 				9B65E1762012B2B50085C61D /* HomePageViewController.swift in Sources */,
 				9B65E1782012B3D30085C61D /* Extensions.swift in Sources */,
+				9BC3EEF4201E753200EEC473 /* AddNewReminderTableViewController.swift in Sources */,
 				9B09B37C200B0F8A00627414 /* ConnectMe.xcdatamodeld in Sources */,
 				9BF1BF482010FC7D00498E3B /* LoginButton.swift in Sources */,
 				9B418B61200BAC1300A60E6F /* AllRemindersTableViewController.swift in Sources */,
-				9BE0A750200B027B00F4E474 /* AddNewReminderViewController.swift in Sources */,
+				9BE0A750200B027B00F4E474 /* AddNewCoreDataReminderViewController.swift in Sources */,
 				9B418B65200CF62B00A60E6F /* LoginViewController.swift in Sources */,
 				9BE0A74E200B027B00F4E474 /* AppDelegate.swift in Sources */,
 				9BC3EEEE201930D000EEC473 /* ConnectMeBarButton.swift in Sources */,
-				9BC3EEE82017BAC400EEC473 /* PracticeViewController.swift in Sources */,
 				9BF1BF442010EF5600498E3B /* AppColours.swift in Sources */,
 				9BC3EEE62016D70800EEC473 /* MenuTableViewCell.swift in Sources */,
 			);

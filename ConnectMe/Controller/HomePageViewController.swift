@@ -40,33 +40,40 @@ class HomePageViewController: UIViewController {
     }()
     
     
-    let addReminder : UIBarButtonItem = {
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(HomePageViewController.addNewReminder))
+    lazy var addReminder : UIBarButtonItem = {
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(HomePageViewController.addNewReminderr))
+
         return add
     }()
     
+    @objc func addNewReminderr()  {
+        print ("PATS FOR SUPERBOWL")
+        let modalViewController = AddNewReminderVC()
+        modalViewController.modalPresentationStyle = .overCurrentContext
+        present(modalViewController, animated: true, completion: nil)
     
-    
-    @objc func addNewReminder()  {
-      print ("PATS FOR SUPERBOWL")
     }
+  
     
-    
-    let calendarButton : ConnectMeBarButton = {
+    lazy var calendarButton : ConnectMeBarButton = {
         let calendar = ConnectMeBarButton.init(title: "Calendar", style: UIBarButtonItemStyle.plain, target: self, action: #selector(buttonTapped))
         return calendar
     }()
     
-    let settingsButton : ConnectMeBarButton = {
+    lazy var settingsButton : ConnectMeBarButton = {
         let settings = ConnectMeBarButton.init(title: "Settings", style: UIBarButtonItemStyle.plain, target: self, action: #selector(buttonTapped))
         return settings
     }()
     
     
-    let supportButton : ConnectMeBarButton = {
+    lazy var supportButton : ConnectMeBarButton = {
         let support = ConnectMeBarButton.init(title: "Support", style: UIBarButtonItemStyle.plain, target: self, action: #selector(buttonTapped))
         return support
     }()
+    
+    @objc func buttonTapped() {
+        print ("That guy who shoved me in Eilat is a huge pussy")
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +100,6 @@ class HomePageViewController: UIViewController {
         self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
 
     }
-
     
     private func setupLabels() {
         quoteTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -160,10 +166,4 @@ class HomePageViewController: UIViewController {
                                             constant: 170)
         imageYaxis.isActive = true
     }
-    
-    
-    @objc func buttonTapped() {
-        print ("That guy who shoved in Eilat is a huge pussy")
-    }
-    
 }
