@@ -26,7 +26,7 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
     }()
 
     override func viewDidLoad() {
-        tableView.register(NameTableViewCell.self, forCellReuseIdentifier: "cellName")
+        tableView.register(ContactNameTableViewCell.self, forCellReuseIdentifier: "cellName")
         tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: "cellButton")
         tableView.register(TimeZoneTableViewCell.self, forCellReuseIdentifier: "cellTimeZone")
         tableView.register(RepeatTableViewCell.self, forCellReuseIdentifier: "cellRepeat")
@@ -61,7 +61,7 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellName", for: indexPath) as! NameTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cellName", for: indexPath) as! ContactNameTableViewCell
             cell.textCell.text =  "Name"
             return cell
         } else if indexPath.row == 1 {  //else if indexPath.row > 0 {

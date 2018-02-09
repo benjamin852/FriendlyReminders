@@ -5,9 +5,6 @@
       location = "group:TimeZoneTableViewCell.swift">
    </FileRef>
    <FileRef
-      location = "group:/Users/benweinberg/Desktop/ConnectMe/ConnectMe/View/NameTableViewCell.swift">
-   </FileRef>
-   <FileRef
       location = "group:ConnectMe.xcodeproj">
    </FileRef>
    <FileRef

@@ -8,13 +8,14 @@
 
 import UIKit
 
-class NameTableViewCell: UITableViewCell {
+class ContactNameTableViewCell: UITableViewCell {
     
     
     let textCell : UITextField = {
         let name = UITextField()
         name.isUserInteractionEnabled = true
         name.translatesAutoresizingMaskIntoConstraints = false
+        name.adjustsFontSizeToFitWidth = true
         return name
     }()
     
@@ -47,5 +48,6 @@ class NameTableViewCell: UITableViewCell {
     //        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: ("V:|[v0]|"), options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": textCell]))
     
 }
+
 
 

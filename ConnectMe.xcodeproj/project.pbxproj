@@ -13,11 +13,11 @@
 		9B65E1762012B2B50085C61D /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65E1752012B2B50085C61D /* HomePageViewController.swift */; };
 		9B65E1782012B3D30085C61D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65E1772012B3D30085C61D /* Extensions.swift */; };
 		9B843BF920226233001F45E7 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B843BF820226233001F45E7 /* ButtonTableViewCell.swift */; };
-		9B843BFB2023923D001F45E7 /* NameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B843BFA2023923D001F45E7 /* NameTableViewCell.swift */; };
 		9B85C6F8202D33EC003BA8D1 /* TimeZoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B85C6F7202D33EC003BA8D1 /* TimeZoneTableViewCell.swift */; };
 		9B85C6FA202D3CDA003BA8D1 /* RepeatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B85C6F9202D3CDA003BA8D1 /* RepeatTableViewCell.swift */; };
 		9BC3EEEE201930D000EEC473 /* ConnectMeBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3EEED201930D000EEC473 /* ConnectMeBarButton.swift */; };
 		9BC3EEF4201E753200EEC473 /* AddNewReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3EEF3201E753200EEC473 /* AddNewReminderTableViewController.swift */; };
+		9BC87AD3202E4E5700FEE1F9 /* ContactNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC87AD2202E4E5700FEE1F9 /* ContactNameTableViewCell.swift */; };
 		9BE0A74E200B027B00F4E474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A74D200B027B00F4E474 /* AppDelegate.swift */; };
 		9BE0A750200B027B00F4E474 /* AddNewCoreDataReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A74F200B027B00F4E474 /* AddNewCoreDataReminderViewController.swift */; };
 		9BE0A753200B027B00F4E474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A751200B027B00F4E474 /* Main.storyboard */; };
@@ -53,11 +53,11 @@
 		9B65E1752012B2B50085C61D /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		9B65E1772012B3D30085C61D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9B843BF820226233001F45E7 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
-		9B843BFA2023923D001F45E7 /* NameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NameTableViewCell.swift; path = /Users/benweinberg/Desktop/ConnectMe/ConnectMe/View/NameTableViewCell.swift; sourceTree = "<absolute>"; };
 		9B85C6F7202D33EC003BA8D1 /* TimeZoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeZoneTableViewCell.swift; path = ../../TimeZoneTableViewCell.swift; sourceTree = "<group>"; };
 		9B85C6F9202D3CDA003BA8D1 /* RepeatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatTableViewCell.swift; sourceTree = "<group>"; };
 		9BC3EEED201930D000EEC473 /* ConnectMeBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectMeBarButton.swift; sourceTree = "<group>"; };
 		9BC3EEF3201E753200EEC473 /* AddNewReminderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderTableViewController.swift; sourceTree = "<group>"; };
+		9BC87AD2202E4E5700FEE1F9 /* ContactNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNameTableViewCell.swift; sourceTree = "<group>"; };
 		9BE0A74A200B027B00F4E474 /* ConnectMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE0A74D200B027B00F4E474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BE0A74F200B027B00F4E474 /* AddNewCoreDataReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCoreDataReminderViewController.swift; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 				9BE0A751200B027B00F4E474 /* Main.storyboard */,
 				9B65E1772012B3D30085C61D /* Extensions.swift */,
 				9BC3EEED201930D000EEC473 /* ConnectMeBarButton.swift */,
-				9B843BFA2023923D001F45E7 /* NameTableViewCell.swift */,
 				9B843BF820226233001F45E7 /* ButtonTableViewCell.swift */,
+				9BC87AD2202E4E5700FEE1F9 /* ContactNameTableViewCell.swift */,
 				9B85C6F7202D33EC003BA8D1 /* TimeZoneTableViewCell.swift */,
 				9B85C6F9202D3CDA003BA8D1 /* RepeatTableViewCell.swift */,
 			);
@@ -333,12 +333,12 @@
 				9B65E1762012B2B50085C61D /* HomePageViewController.swift in Sources */,
 				9B65E1782012B3D30085C61D /* Extensions.swift in Sources */,
 				9B843BF920226233001F45E7 /* ButtonTableViewCell.swift in Sources */,
-				9B843BFB2023923D001F45E7 /* NameTableViewCell.swift in Sources */,
 				9BC3EEF4201E753200EEC473 /* AddNewReminderTableViewController.swift in Sources */,
 				9B85C6F8202D33EC003BA8D1 /* TimeZoneTableViewCell.swift in Sources */,
 				9B09B37C200B0F8A00627414 /* ConnectMe.xcdatamodeld in Sources */,
 				9BF1BF482010FC7D00498E3B /* LoginButton.swift in Sources */,
 				9B418B61200BAC1300A60E6F /* AllRemindersTableViewController.swift in Sources */,
+				9BC87AD3202E4E5700FEE1F9 /* ContactNameTableViewCell.swift in Sources */,
 				9B85C6FA202D3CDA003BA8D1 /* RepeatTableViewCell.swift in Sources */,
 				9BE0A750200B027B00F4E474 /* AddNewCoreDataReminderViewController.swift in Sources */,
 				9B418B65200CF62B00A60E6F /* LoginViewController.swift in Sources */,
