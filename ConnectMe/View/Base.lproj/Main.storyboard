@@ -13,6 +13,7 @@
         <!--Add New Reminder View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="AddNewReminderViewController" customModule="ConnectMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -57,13 +58,13 @@
                         <outlet property="datePicker" destination="Lv1-aG-Xw8" id="SYw-ay-toU"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="375" y="133"/>
         </scene>
         <!--All Reminders Table View Controller-->
         <scene sceneID="Elc-nN-VcP">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gma-h6-jap" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="nCZ-0D-1Qn" customClass="AllRemindersTableViewController" customModule="ConnectMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BcQ-R0-Jdx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -94,7 +95,6 @@
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gma-h6-jap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116" y="136.28185907046478"/>
         </scene>
@@ -116,6 +116,7 @@
         <!--Navigation Controller-->
         <scene sceneID="948-4w-3qG">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R9D-hY-XJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="asE-wg-Gh3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5S3-xM-caj">
@@ -127,7 +128,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="QDQ-fP-A7W"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R9D-hY-XJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-172" y="133"/>
         </scene>

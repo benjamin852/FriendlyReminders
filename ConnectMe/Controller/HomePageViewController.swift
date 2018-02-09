@@ -10,7 +10,10 @@ import UIKit
 
 class HomePageViewController: UIViewController {
 
+    let addReminderViewController = AddNewReminderVC()
+    let timePicker = UIDatePicker()
 
+    
     let friendlyReminders : UILabel = {
        let friendlyRemindersLabel = UILabel()
         friendlyRemindersLabel.text = "FRIENDLY REMINDERS"
@@ -42,16 +45,13 @@ class HomePageViewController: UIViewController {
     
     lazy var addReminder : UIBarButtonItem = {
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(HomePageViewController.addNewReminderr))
-
         return add
     }()
     
     @objc func addNewReminderr()  {
-        print ("PATS FOR SUPERBOWL")
-        let modalViewController = AddNewReminderVC()
-        modalViewController.modalPresentationStyle = .overCurrentContext
-        present(modalViewController, animated: true, completion: nil)
-    
+        addReminderViewController.modalPresentationStyle = .overCurrentContext
+        present(addReminderViewController, animated: true, completion: nil)
+      //  addReminderViewController.dismiss(animated: false, completion: nil)
     }
   
     
@@ -82,11 +82,15 @@ class HomePageViewController: UIViewController {
         view.addSubview(friendsImage)
         self.setupLabels()
         self.setupImageLayout()
-        
         let background = CAGradientLayer().backgroundColour()
         background.frame = self.view.bounds
         self.view.layer.insertSublayer(background, at: 0)
+        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(openTimePicker(notif:)), name: NSNotification.Name(rawValue: "timeTapped"), object: nil)
     }
+    
+ 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -100,6 +104,26 @@ class HomePageViewController: UIViewController {
         self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
 
     }
+    
+    @objc func openTimePicker(notif: NSNotification) {
+        timePicker.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
+        self.view.addSubview(timePicker)
+        self.setupTimePicker()
+
+
+    }
+    
+
+//    func dismissPopupView() {
+//        let tapGesture = UITapGestureRecognizer(target: self.view.frame, action: #selector(removeModalVC))
+//        addReminderViewController.view.addGestureRecognizer(tapGesture)
+//    }
+//    @objc func removeModalVC(){
+//        addReminderViewController.dismiss(animated: true, completion: nil) //try call this func with a button and see what happens
+//    }
+    
+    
+
     
     private func setupLabels() {
         quoteTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -166,4 +190,14 @@ class HomePageViewController: UIViewController {
                                             constant: 170)
         imageYaxis.isActive = true
     }
+    
+    
+    
+    private func setupTimePicker() {
+        let timePickerYaxis = timePicker.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        timePickerYaxis.isActive = true
+        let timePickerXaxis = timePicker.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        timePickerXaxis.isActive = true
+    }
 }
+
