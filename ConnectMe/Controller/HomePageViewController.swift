@@ -107,10 +107,18 @@ class HomePageViewController: UIViewController {
     
     @objc func openTimePicker(notif: NSNotification) {
         timePicker.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
+        timePicker.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(timePicker)
-        self.setupTimePicker()
 
-
+        let bottom = NSLayoutConstraint(item: timePicker, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
+        bottom.isActive = true
+        
+//        let top = NSLayoutConstraint(item: timePicker, attribute: .bottom, relatedBy: .equal, toItem: butt, attribute: .bottom, multiplier: 1, constant: 0)
+//        bottom.isActive = true
+        
+        let centerX = NSLayoutConstraint(item: timePicker, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
+        centerX.isActive = true
+//        self.setupTimePicker()
     }
     
 
