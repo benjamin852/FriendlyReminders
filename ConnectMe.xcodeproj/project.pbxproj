@@ -27,6 +27,7 @@
 		9BE0A771200B027C00F4E474 /* ConnectMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0A770200B027C00F4E474 /* ConnectMeUITests.swift */; };
 		9BF1BF442010EF5600498E3B /* AppColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1BF432010EF5600498E3B /* AppColours.swift */; };
 		9BF1BF482010FC7D00498E3B /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1BF472010FC7D00498E3B /* LoginButton.swift */; };
+		F97E727B202F6B5100E0D53F /* CreateNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97E727A202F6B5100E0D53F /* CreateNotificationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		9BE0A772200B027C00F4E474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BF1BF432010EF5600498E3B /* AppColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColours.swift; sourceTree = "<group>"; };
 		9BF1BF472010FC7D00498E3B /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		F97E727A202F6B5100E0D53F /* CreateNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				9B843BF820226233001F45E7 /* ButtonTableViewCell.swift */,
 				9BC87AD2202E4E5700FEE1F9 /* ContactNameTableViewCell.swift */,
 				9B85C6F7202D33EC003BA8D1 /* TimeZoneTableViewCell.swift */,
+				F97E727A202F6B5100E0D53F /* CreateNotificationTableViewCell.swift */,
 				9B85C6F9202D3CDA003BA8D1 /* RepeatTableViewCell.swift */,
 			);
 			path = View;
@@ -344,6 +347,7 @@
 				9B418B65200CF62B00A60E6F /* LoginViewController.swift in Sources */,
 				9BE0A74E200B027B00F4E474 /* AppDelegate.swift in Sources */,
 				9BC3EEEE201930D000EEC473 /* ConnectMeBarButton.swift in Sources */,
+				F97E727B202F6B5100E0D53F /* CreateNotificationTableViewCell.swift in Sources */,
 				9BF1BF442010EF5600498E3B /* AppColours.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

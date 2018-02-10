@@ -26,10 +26,11 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
     }()
 
     override func viewDidLoad() {
-        tableView.register(ContactNameTableViewCell.self, forCellReuseIdentifier: "cellName")
-        tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: "cellButton")
-        tableView.register(TimeZoneTableViewCell.self, forCellReuseIdentifier: "cellTimeZone")
-        tableView.register(RepeatTableViewCell.self, forCellReuseIdentifier: "cellRepeat")
+        tableView.register(CreateNotificationTableViewCell.self, forCellReuseIdentifier: "cell")
+//        tableView.register(ContactNameTableViewCell.self, forCellReuseIdentifier: "cellName")
+//        tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: "cellButton")
+//        tableView.register(TimeZoneTableViewCell.self, forCellReuseIdentifier: "cellTimeZone")
+//        tableView.register(RepeatTableViewCell.self, forCellReuseIdentifier: "cellRepeat")
         tableView.frame = CGRect(x: 42, y: 100, width: 310, height: 400) //don't hard code this dumbass
         tableView.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
         tableView.separatorColor = ConnectMeConstants.connectMeColours.darkBlueColour
@@ -60,24 +61,24 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CreateNotificationTableViewCell
+
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellName", for: indexPath) as! ContactNameTableViewCell
-            cell.textCell.text =  "Name"
-            return cell
+            cell.type = .name
+//            cell.textCell.text =  "Name"
         } else if indexPath.row == 1 {  //else if indexPath.row > 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellButton", for: indexPath) as! ButtonTableViewCell
-            cell.menuButton.setTitle("Time", for: .normal)
-            return cell
+            cell.type = .time
+//            cell.menuButton.setTitle("Time", for: .normal)
         } else if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellTimeZone", for: indexPath) as! TimeZoneTableViewCell
-            cell.timeZoneButton.setTitle("Time Zone", for: .normal)
-            return cell
+            cell.type = .timezone
+//            cell.timeZoneButton.setTitle("Time Zone", for: .normal)
          }else if indexPath.row == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellRepeat", for: indexPath) as! RepeatTableViewCell
-            cell.reminderButton.setTitle("Repeat", for: .normal)
-            return cell
+            cell.type = .isRepeat
+//            cell.reminderButton.setTitle("Repeat", for: .normal)
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellButton", for: indexPath) as! ButtonTableViewCell
+
+        cell.delegate = self
+        
         return cell
     }
     
@@ -94,5 +95,20 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
                                        multiplier: 1.0,
                                        constant: 0)
         yAxis.isActive = true
+    }
+}
+
+extension AddNewReminderVC:ClickedDelegate {
+    func buttonClicked(buttonType:ButtonType) {
+        switch buttonType {
+        case .name:
+            print("Name")
+        case .time:
+            print("Time")
+        case .timezone:
+            print("Timezone")
+        case .isRepeat:
+            print("IsRepeat")
+        }
     }
 }
