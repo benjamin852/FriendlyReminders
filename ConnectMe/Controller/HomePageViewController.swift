@@ -11,7 +11,7 @@ import UIKit
 class HomePageViewController: UIViewController {
 
     let addReminderViewController = AddNewReminderVC()
-    let timePicker = UIDatePicker()
+//    let timePicker = UIDatePicker()
 
     
     let friendlyReminders : UILabel = {
@@ -87,9 +87,20 @@ class HomePageViewController: UIViewController {
         self.view.layer.insertSublayer(background, at: 0)
         
 
-        NotificationCenter.default.addObserver(self, selector: #selector(openTimePicker(notif:)), name: NSNotification.Name(rawValue: "timeTapped"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(openTimePicker(notif:)), name: NSNotification.Name(rawValue: "timeTapped"), object: nil)
     }
-    
+    //    @objc func openTimePicker(notif: NSNotification) {
+    //        timePicker.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
+    //        timePicker.translatesAutoresizingMaskIntoConstraints = false
+    //        self.view.addSubview(timePicker)
+    //
+    //        let bottom = NSLayoutConstraint(item: timePicker, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
+    //        bottom.isActive = true
+    //
+    //        let centerX = NSLayoutConstraint(item: timePicker, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
+    //        centerX.isActive = true
+    //    }
+
  
 
     override func didReceiveMemoryWarning() {
@@ -105,23 +116,10 @@ class HomePageViewController: UIViewController {
 
     }
     
-    @objc func openTimePicker(notif: NSNotification) {
-        timePicker.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
-        timePicker.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(timePicker)
-
-        let bottom = NSLayoutConstraint(item: timePicker, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
-        bottom.isActive = true
-        
-//        let top = NSLayoutConstraint(item: timePicker, attribute: .bottom, relatedBy: .equal, toItem: butt, attribute: .bottom, multiplier: 1, constant: 0)
-//        bottom.isActive = true
-        
-        let centerX = NSLayoutConstraint(item: timePicker, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
-        centerX.isActive = true
-//        self.setupTimePicker()
-    }
     
-
+    
+        ///REMOVE THE VC
+    
 //    func dismissPopupView() {
 //        let tapGesture = UITapGestureRecognizer(target: self.view.frame, action: #selector(removeModalVC))
 //        addReminderViewController.view.addGestureRecognizer(tapGesture)
@@ -197,15 +195,6 @@ class HomePageViewController: UIViewController {
                                             multiplier: 1,
                                             constant: 170)
         imageYaxis.isActive = true
-    }
-    
-    
-    
-    private func setupTimePicker() {
-        let timePickerYaxis = timePicker.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-        timePickerYaxis.isActive = true
-        let timePickerXaxis = timePicker.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        timePickerXaxis.isActive = true
     }
 }
 
