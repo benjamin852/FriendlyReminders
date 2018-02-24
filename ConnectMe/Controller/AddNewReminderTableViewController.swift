@@ -10,11 +10,7 @@ import UIKit
 
 class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    
     let tableView = UITableView()
-    
-  
-  
     
     let newReminder = NewReminder(name: "", time: NewReminder.dateFromString(dateString: "01/01/2000"), timeZone: "", repeatParam: false)
     let fields: [ModelFieldType] = [.name, .time, .timeZone, .repeatCell]
@@ -22,7 +18,9 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     
     var datePickerIndexPath: IndexPath?
-    var datePickerVisible: Bool {return datePickerIndexPath != nil}
+    var datePickerVisible: Bool {
+        return datePickerIndexPath != nil
+    }
     
  
     
@@ -43,7 +41,7 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
     override func viewDidLoad() {
         tableView.register(CreateNotificationTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(DatePickerTableViewCell.self, forCellReuseIdentifier: "datePickerCell")
-//        tableView.register(ContactNameTableViewCell.self, forCellReuseIdentifier: "contactNameCell")
+        tableView.register(ContactNameTableViewCell.self, forCellReuseIdentifier: "contactNameCell")
         tableView.frame = CGRect(x: 42, y: 100, width: 310, height: 400) //don't hard code this dumbass
         tableView.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
         tableView.separatorColor = ConnectMeConstants.connectMeColours.darkBlueColour
@@ -93,20 +91,20 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
             
             
             if indexPath.row == 0 {
-                cell.textCell.text = "Name" //not working?
+                let cellName = tableView.dequeueReusableCell(withIdentifier: "contactNameCell", for: indexPath) as! ContactNameTableViewCell
+                cellName.textCell.text =  "Name"
             } else if indexPath.row == 1 {
                 cell.type = .time
                 cell.cellButton.setTitle("Time", for: .normal)
             } else if indexPath.row == 2 {
                 cell.type = .timezone
-                cell.cellButton.setTitle("Time Zone", for: .normal)
+                cell.cellButton.setTitle("Wazy", for: .normal)
             } else if indexPath.row == 3 {
                 cell.type = .isRepeat
                 cell.cellButton.setTitle("Repeat", for: .normal)
             }
  
             return cell
-
         }
 
     }
@@ -170,21 +168,32 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     func datePickerIsRightAboveMe(indexPath: IndexPath) -> Bool {
         if datePickerVisible && datePickerIndexPath!.section == indexPath.section {
-            if indexPath.section != datePickerIndexPath!.section { return false }
-            else { return indexPath.row == datePickerIndexPath!.row + 1 }
-        } else { return false }
+            if indexPath.section != datePickerIndexPath!.section {
+                return false
+            }
+            else {
+                return indexPath.row == datePickerIndexPath!.row + 1
+            }
+        } else {
+            return false
+        }
     }
     
     func datePickerIsRightBelowMe(indexPath: IndexPath) -> Bool {
         if datePickerVisible && datePickerIndexPath!.section == indexPath.section {
             if indexPath.section != datePickerIndexPath!.section { return false }
-            else { return indexPath.row == datePickerIndexPath!.row - 1 }
-        } else { return false }
+            else {
+                return indexPath.row == datePickerIndexPath!.row - 1
+            }
+        } else {
+            return false
+        }
     }
     
     func dismissDatePickerRow() {
-        if !datePickerVisible { return }
-        
+        if !datePickerVisible {
+            return
+        }
         tableView.beginUpdates()
         tableView.deleteRows(at: [datePickerIndexPath!], with: .fade)
         datePickerIndexPath = nil
@@ -196,7 +205,6 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
         return dateFields.contains(field)
     }
     
-    // MARK: - DatePickerTableViewCellDelegate methods
     
     func dateChangedForField(field: ModelFieldType, toDate date: Date) {
         print("Date changed for field \(field) to \(date)")
@@ -204,7 +212,6 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
         self.tableView.reloadData()
     }
     
-    // MARK: - TextFieldTableViewCellDelegate
     
     func field(field: ModelFieldType, changedValueTo value: String) {
         print("Value changed for field \(field) to \(value)")
