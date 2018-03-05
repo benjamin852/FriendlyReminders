@@ -11,8 +11,7 @@ import UIKit
 class HomePageViewController: UIViewController {
 
     let addReminderViewController = AddNewReminderVC()
-//    let timePicker = UIDatePicker()
-
+    var newReminderIsVisibile = false
     
     let friendlyReminders : UILabel = {
        let friendlyRemindersLabel = UILabel()
@@ -51,7 +50,6 @@ class HomePageViewController: UIViewController {
     @objc func addNewReminderr()  {
         addReminderViewController.modalPresentationStyle = .overCurrentContext
         present(addReminderViewController, animated: true, completion: nil)
-      //  addReminderViewController.dismiss(animated: false, completion: nil)
     }
   
     
@@ -115,19 +113,7 @@ class HomePageViewController: UIViewController {
         self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
 
     }
-    
-    
-    
-        ///REMOVE THE VC
-    
-//    func dismissPopupView() {
-//        let tapGesture = UITapGestureRecognizer(target: self.view.frame, action: #selector(removeModalVC))
-//        addReminderViewController.view.addGestureRecognizer(tapGesture)
-//    }
-//    @objc func removeModalVC(){
-//        addReminderViewController.dismiss(animated: true, completion: nil) //try call this func with a button and see what happens
-//    }
-    
+ 
     
 
     

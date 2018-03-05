@@ -12,7 +12,7 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
 
     let tableView = UITableView()
     
-    let newReminder = NewReminder(name: "", time: NewReminder.dateFromString(dateString: "01/01/2000"), timeZone: "", repeatParam: false)
+    let newReminder = NewReminder(name: "Purple Shirt", time: NewReminder.dateFromString(dateString: "01/01/2000"), timeZone: "", repeatParam: false)
     let fields: [ModelFieldType] = [.name, .time, .timeZone, .repeatCell]
     let dateFields: [ModelFieldType] = [.time]
     
@@ -50,7 +50,13 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
         self.view.addSubview(tableView)
         self.view.addSubview(setReminderButton)
         self.setReminderLayout()
+        self.setReminderFunctionality()
+        self.dismissPopupView()
     }
+    
+    
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datePickerVisible ? fields.count + 1 : fields.count //if then else
@@ -91,14 +97,15 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
             
             
             if indexPath.row == 0 {
-                let cellName = tableView.dequeueReusableCell(withIdentifier: "contactNameCell", for: indexPath) as! ContactNameTableViewCell
-                cellName.textCell.text =  "Name"
+                cell.type = .name
+//                let cellName = tableView.dequeueReusableCell(withIdentifier: "contactNameCell", for: indexPath) as! ContactNameTableViewCell
+//                cellName.textCell.text =  "Name"
             } else if indexPath.row == 1 {
                 cell.type = .time
                 cell.cellButton.setTitle("Time", for: .normal)
             } else if indexPath.row == 2 {
                 cell.type = .timezone
-                cell.cellButton.setTitle("Wazy", for: .normal)
+                cell.cellButton.setTitle("Timezone", for: .normal)
             } else if indexPath.row == 3 {
                 cell.type = .isRepeat
                 cell.cellButton.setTitle("Repeat", for: .normal)
@@ -150,6 +157,21 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
         }
         tableView.endUpdates()
     }
+    
+    
+    ///REMOVE THE VC
+    
+    
+    func dismissPopupView() {
+        //get the frame to tap everything outside of this vc to close the vc
+        let tapGesture = UITapGestureRecognizer(target: self.view.frame, action: #selector(removeModalVC))
+        self.view.window?.addGestureRecognizer(tapGesture)
+        
+    }
+    @objc func removeModalVC(){
+        self.dismiss(animated: true, completion: nil) //try call this func with a button and see what happens
+    }
+    
     
     func calculateFieldForIndexPath(indexPath: IndexPath) -> ModelFieldType {
         if datePickerVisible && datePickerIndexPath!.section == indexPath.section {
@@ -236,6 +258,13 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
                                        constant: 0)
         yAxis.isActive = true
     }
+    
+    func setReminderFunctionality() {
+        setReminderButton.addTarget(self, action: #selector(addReminderFunctionality), for: .touchUpInside)
+    }
+    @objc func addReminderFunctionality () {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension AddNewReminderVC:ClickedDelegate {
@@ -243,8 +272,8 @@ extension AddNewReminderVC:ClickedDelegate {
     
     func buttonClicked(buttonType:ButtonType) {
         switch buttonType {
-       // case .name:
-        //    print("Name")
+        case .name:
+            print("Name")
         case .time:
           //  NotificationCenter.default.post(name: NSNotification.Name(rawValue: "timeTapped"), object: nil)
             print ("Time Tapped")

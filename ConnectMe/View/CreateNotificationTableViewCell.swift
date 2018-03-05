@@ -14,11 +14,10 @@ protocol ClickedDelegate: class {
 
 
 enum ButtonType {
-    //case name
+    case name
     case time
     case timezone
     case isRepeat
-//    case datePicker
 }
 
 class CreateNotificationTableViewCell: UITableViewCell {  

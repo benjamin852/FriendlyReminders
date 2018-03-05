@@ -8,6 +8,7 @@
 
 import UIKit
 
+//used to eventually update the data in the cell
 protocol DatePickerTableViewCellDelegate: class {
     func dateChangedForField(field: ModelFieldType, toDate date: Date)
 }
@@ -16,12 +17,11 @@ class DatePickerTableViewCell: UITableViewCell {
 
     
     let datePicker = UIDatePicker()
-    var field: ModelFieldType!
+    var field: ModelFieldType! //index in the tableView
     weak var delegate: DatePickerTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,8 +40,8 @@ class DatePickerTableViewCell: UITableViewCell {
     }
     
     func configureWithField(field: ModelFieldType, currentDate: Date?) {
-        self.field = field
-        self.datePicker.date = currentDate ?? Date()
+        self.field = field //at the correct index
+        self.datePicker.date = currentDate ?? Date()  //value of date picker is what user inputs in the picker
     }
     
     @objc func valueChanged(_ sender: Any)  {
