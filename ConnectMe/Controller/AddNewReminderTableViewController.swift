@@ -51,6 +51,7 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
         self.view.addSubview(setReminderButton)
         self.setReminderLayout()
         self.setReminderFunctionality()
+        // Dismiss view @BEN this is what I added
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeModalVC)))
     }
     
