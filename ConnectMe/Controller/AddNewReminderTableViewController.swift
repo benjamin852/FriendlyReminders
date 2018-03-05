@@ -51,12 +51,8 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
         self.view.addSubview(setReminderButton)
         self.setReminderLayout()
         self.setReminderFunctionality()
-        self.dismissPopupView()
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeModalVC)))
     }
-    
-    
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datePickerVisible ? fields.count + 1 : fields.count //if then else
@@ -158,16 +154,6 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
         tableView.endUpdates()
     }
     
-    
-    ///REMOVE THE VC
-    
-    
-    func dismissPopupView() {
-        //get the frame to tap everything outside of this vc to close the vc
-        let tapGesture = UITapGestureRecognizer(target: self.view.frame, action: #selector(removeModalVC))
-        self.view.window?.addGestureRecognizer(tapGesture)
-        
-    }
     @objc func removeModalVC(){
         self.dismiss(animated: true, completion: nil) //try call this func with a button and see what happens
     }
