@@ -12,8 +12,8 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
 
     let tableView = UITableView()
     
-    let newReminder = NewReminder(name: "Purple Shirt", time: NewReminder.dateFromString(dateString: "01/01/2000"), timeZone: "", repeatParam: false)
-    let fields: [ModelFieldType] = [.name, .time, .timeZone, .repeatCell]
+    let newReminder = NewReminder()
+    let fields: [ModelFieldType] = [.nameCell, .time, .timeZone, .repeatCell]
     let dateFields: [ModelFieldType] = [.time]
     
     
@@ -22,13 +22,10 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
         return datePickerIndexPath != nil
     }
     
- 
-    
-    
     let setReminderButton : UIButton = {
         let setReminder = UIButton()
         setReminder.translatesAutoresizingMaskIntoConstraints = false
-        setReminder.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        setReminder.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)    
         setReminder.setTitleColor(ConnectMeConstants.connectMeColours.lightBlueColour, for: .normal)
         setReminder.backgroundColor = ConnectMeConstants.connectMeColours.darkBlueColour
         setReminder.layer.cornerRadius = 10
@@ -39,9 +36,11 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
     }()
 
     override func viewDidLoad() {
-        tableView.register(CreateNotificationTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(AddNewReminderCellFunctionality.self, forCellReuseIdentifier: "cell")
         tableView.register(DatePickerTableViewCell.self, forCellReuseIdentifier: "datePickerCell")
+       
         tableView.register(ContactNameTableViewCell.self, forCellReuseIdentifier: "contactNameCell")
+        
         tableView.frame = CGRect(x: 42, y: 100, width: 310, height: 400) //don't hard code this dumbass
         tableView.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
         tableView.separatorColor = ConnectMeConstants.connectMeColours.darkBlueColour
@@ -52,11 +51,14 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
         self.setReminderLayout()
         self.setReminderFunctionality()
         // Dismiss view @BEN this is what I added
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeModalVC)))
+///        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeModalVC)))
     }
+//    @objc func removeModalVC(){
+//        self.dismiss(animated: true, completion: nil) //try call this func with a button and see what happens
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datePickerVisible ? fields.count + 1 : fields.count //if then else
+        return datePickerVisible ? fields.count + 1 :   fields.count //if then else
     }
     
     
@@ -77,7 +79,7 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if datePickerVisible && datePickerIndexPath! == indexPath {
            
-            let cellPicker = self.tableView.dequeueReusableCell(withIdentifier: "datePickerCell", for: indexPath) as! DatePickerTableViewCell
+            let cellPicker = tableView.dequeueReusableCell(withIdentifier: "datePickerCell", for: indexPath) as! DatePickerTableViewCell
             cellPicker.delegate = self as? DatePickerTableViewCellDelegate
             
             // the field will correspond to the index of the row before this one.
@@ -87,24 +89,25 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
             return cellPicker
         
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CreateNotificationTableViewCell
-            cell.delegate = self
-            let field = calculateFieldForIndexPath(indexPath: indexPath)
-            cell.configureWithField(field: field, andValue: newReminder.stringValueForField(field: field), editable: !dateFields.contains(field))
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AddNewReminderCellFunctionality
+//            let field = calculateFieldForIndexPath(indexPath: indexPath)
+//            cell.configureWithField(field: field, andValue: newReminder.stringValueForField(field: field), editable: !dateFields.contains(field))
             
+              cell.delegate = self
             
             if indexPath.row == 0 {
-                cell.type = .name
-//                let cellName = tableView.dequeueReusableCell(withIdentifier: "contactNameCell", for: indexPath) as! ContactNameTableViewCell
-//                cellName.textCell.text =  "Name"
+                cell.textCell.text = "Name"
             } else if indexPath.row == 1 {
                 cell.type = .time
+
                 cell.cellButton.setTitle("Time", for: .normal)
             } else if indexPath.row == 2 {
                 cell.type = .timezone
-                cell.cellButton.setTitle("Timezone", for: .normal)
+
+                cell.cellButton.setTitle("Time Zone", for: .normal)
             } else if indexPath.row == 3 {
                 cell.type = .isRepeat
+
                 cell.cellButton.setTitle("Repeat", for: .normal)
             }
  
@@ -131,14 +134,14 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
                 // just close the datepicker
                 self.datePickerIndexPath = nil
                 UIView.animate(withDuration: 0.3, animations: {
-                    self.tableView.frame = CGRect(x: 42, y: 100, width: 310, height: 400)
+                    tableView.frame = CGRect(x: 42, y: 100, width: 310, height: 400)
                     self.view.layoutIfNeeded()
                 })
 
             } else {
                 self.datePickerIndexPath = nil
                 UIView.animate(withDuration: 0.3, animations: {
-                    self.tableView.frame = CGRect(x: 42, y: 100, width: 310, height: 400)
+                    tableView.frame = CGRect(x: 42, y: 100, width: 310, height: 400)
                     self.view.layoutIfNeeded()
                 })
                 
@@ -147,18 +150,13 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
             self.datePickerIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
             tableView.insertRows(at: [self.datePickerIndexPath!], with: .fade)
             UIView.animate(withDuration: 0.3, animations: {
-                self.tableView.frame = CGRect(x: 42, y: 100, width: 310, height: 500)   //self.view.frame.size.width)
+                tableView.frame = CGRect(x: 42, y: 100, width: 310, height: 500)
                 self.view.layoutIfNeeded()
             })
 
         }
         tableView.endUpdates()
     }
-    
-    @objc func removeModalVC(){
-        self.dismiss(animated: true, completion: nil) //try call this func with a button and see what happens
-    }
-    
     
     func calculateFieldForIndexPath(indexPath: IndexPath) -> ModelFieldType {
         if datePickerVisible && datePickerIndexPath!.section == indexPath.section {
@@ -174,7 +172,7 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
             return fields[indexPath.row]
         }
     }
-    
+
     func datePickerIsRightAboveMe(indexPath: IndexPath) -> Bool {
         if datePickerVisible && datePickerIndexPath!.section == indexPath.section {
             if indexPath.section != datePickerIndexPath!.section {
@@ -218,14 +216,14 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
     func dateChangedForField(field: ModelFieldType, toDate date: Date) {
         print("Date changed for field \(field) to \(date)")
         newReminder.setValue(value: date, forField: field)
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     
     func field(field: ModelFieldType, changedValueTo value: String) {
         print("Value changed for field \(field) to \(value)")
         newReminder.setValue(value: value, forField: field)
-        self.tableView.reloadData() //causes the one letter at a time issue
+        tableView.reloadData() //causes the one letter at a time issue
     }
     
     func fieldDidBeginEditing(field: ModelFieldType) {
@@ -239,7 +237,7 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
         let yAxis = NSLayoutConstraint(item: setReminderButton,
                                        attribute: .bottom,
                                        relatedBy: .equal,
-                                       toItem: self.tableView,
+                                       toItem: tableView,
                                        attribute: .bottom,
                                        multiplier: 1.0,
                                        constant: 0)
@@ -255,14 +253,15 @@ class AddNewReminderVC: UIViewController, UITableViewDataSource, UITableViewDele
 }
 
 extension AddNewReminderVC:ClickedDelegate {
-    
+
+    func textFieldClicked(textField: UITextField) {
+
+    }
     
     func buttonClicked(buttonType:ButtonType) {
         switch buttonType {
-        case .name:
-            print("Name")
         case .time:
-          //  NotificationCenter.default.post(name: NSNotification.Name(rawValue: "timeTapped"), object: nil)
+            //  NotificationCenter.default.post(name: NSNotification.Name(rawValue: "timeTapped"), object: nil)
             print ("Time Tapped")
         case .timezone:
             print("Timezone")
@@ -274,8 +273,9 @@ extension AddNewReminderVC:ClickedDelegate {
             //                menuButton.backgroundColor = ConnectMeConstants.connectMeColours.darkBlueColour
             //            }
         }
-            
+        
+        
 
-       
     }
 }
+

@@ -14,13 +14,12 @@ protocol ClickedDelegate: class {
 
 
 enum ButtonType {
-    case name
     case time
     case timezone
     case isRepeat
 }
 
-class CreateNotificationTableViewCell: UITableViewCell {  
+class AddNewReminderCellFunctionality: UITableViewCell {  
     
     var field: ModelFieldType!
     weak var delegate:ClickedDelegate?
@@ -35,12 +34,10 @@ class CreateNotificationTableViewCell: UITableViewCell {
     let textCell : UITextField = {
         let name = UITextField()
         name.isUserInteractionEnabled = true
-        name.translatesAutoresizingMaskIntoConstraints = true
+        name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
-    
-    let datePicker = UIDatePicker()
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -56,9 +53,11 @@ class CreateNotificationTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        
         self.setupButtonViews()
-        self.buttonFunctionality()
         self.setupTextFieldView()
+        self.buttonFunctionality()
         self.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
     }
     
@@ -78,23 +77,22 @@ class CreateNotificationTableViewCell: UITableViewCell {
     
     func configureWithField(field: ModelFieldType, andValue value: String?, editable: Bool) {
         self.field = field
+        
+        
         self.cellButton.setTitle(self.field.rawValue, for: .normal)
+        
+        
+        
+        self.textCell.text = self.field.rawValue
     }
-    
     
     func buttonFunctionality()  {
-        cellButton.addTarget(self, action: #selector (CreateNotificationTableViewCell.buttonTapped), for: .touchUpInside)
+        cellButton.addTarget(self, action: #selector (AddNewReminderCellFunctionality.buttonTapped), for: .touchUpInside)
     }
-    
+
     @objc func buttonTapped () {
         delegate?.buttonClicked(buttonType: type)
     }
-    
-   
-    
+
+
 }
-
-
-
-
-

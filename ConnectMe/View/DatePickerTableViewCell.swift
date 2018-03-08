@@ -35,7 +35,7 @@ class DatePickerTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(datePicker)
-        self.backgroundColor =  UIColor.white // ConnectMeConstants.connectMeColours.darkBlueColour
+        self.backgroundColor =  UIColor.white 
         self.datePicker.addTarget(self, action: #selector (valueChanged), for: .valueChanged)
     }
     

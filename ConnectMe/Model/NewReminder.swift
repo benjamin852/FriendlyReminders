@@ -9,32 +9,32 @@
 import UIKit
 
 enum ModelFieldType: String {
-    case name = "Name"
-    case time = "time"
-    case timeZone = "time zone"
-    case repeatCell = "repeat"
+    case nameCell
+    case time
+    case timeZone
+    case repeatCell
 }
 
 class NewReminder : NSObject {
     
-    var name: String!
+    var name: UITextField!
     var time: Date!
     var timeZone : String!
     var repeatCell : Bool!
     
     
     //we call the model object in the hard coded instantiation of the AddNewReminderVC
-    init(name: String!, time: Date!, timeZone : String!, repeatParam : Bool!) {
-        self.name = name
-        self.time = time
-        self.timeZone = timeZone
-        self.repeatCell = repeatParam
-    }
+//    init(name: String!, time: Date!, timeZone : String!, repeatParam : Bool!) {
+//        self.name = name
+//        self.time = time
+//        self.timeZone = timeZone
+//        self.repeatCell = repeatParam
+//    }
     
     //each enum case returns the value of its corresponding global var
     func valueForField(field: ModelFieldType) -> Any {
         switch field {
-        case .name : return name
+        case .nameCell : return name
         case .time : return time
         case .timeZone : return timeZone
         case .repeatCell : return repeatCell
@@ -55,8 +55,8 @@ class NewReminder : NSObject {
     func setValue(value: Any, forField field: ModelFieldType) {
         switch field {
         
-        case .name:
-            if let name = value as? String {
+        case .nameCell:
+            if let name = value as? UITextField {
                 self.name = name
             }
        
