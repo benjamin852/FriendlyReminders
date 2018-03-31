@@ -34,8 +34,9 @@ class ContactNameTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupTextFieldViews()
-//        self.backgroundColor = ConnectMeConstants.connectMeColours.darkBlueColour
     }
+    
+    
     
     
     func setupTextFieldViews()  {

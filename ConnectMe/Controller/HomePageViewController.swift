@@ -10,6 +10,7 @@ import UIKit
 
 class HomePageViewController: UIViewController {
 
+    
     let addReminderViewController = AddNewReminderVC()
     var newReminderIsVisibile = false
     
@@ -71,6 +72,11 @@ class HomePageViewController: UIViewController {
     
     @objc func buttonTapped() {
         print ("That guy who shoved me in Eilat is a huge pussy")
+    }
+    
+    @objc func calendarButtonTapped() {
+//        let calendarViewController = CalendarViewController()
+//        self.navigationController?.pushViewController(calendarViewController, animated: true)
     }
    
     override func viewDidLoad() {
