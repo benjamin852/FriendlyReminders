@@ -147,7 +147,7 @@ class HomePageViewController: UIViewController {
         
         
         friendlyReminders.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        friendlyReminders.setBottomBorder()
+        friendlyReminders.setBottomBorderLabel()
         let reminderLabelTrailing = NSLayoutConstraint(item: friendlyReminders,
                                                       attribute: .trailing,
                                                       relatedBy: .equal,

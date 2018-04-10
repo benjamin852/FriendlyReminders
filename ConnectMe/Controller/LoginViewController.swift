@@ -19,37 +19,23 @@ class LoginViewController: UIViewController {
     }()
     
     
-    let usernameTextField : UITextField = {
-        let usernameText = UITextField()
+    let usernameTextField : ConnectMeTextField = {
+        let usernameText = ConnectMeTextField()
         usernameText.placeholder = "Username"
-        usernameText.font = UIFont.boldSystemFont(ofSize: 22)
         usernameText.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: ConnectMeConstants.connectMeColours.lightBlueColour])
-        usernameText.textAlignment = .left
-        usernameText.textColor = ConnectMeConstants.connectMeColours.lightBlueColour
-        usernameText.translatesAutoresizingMaskIntoConstraints = false
         return usernameText
     }()
     
-    let passwordTextField : UITextField = {
-        let passwordText = UITextField()
+    let passwordTextField : ConnectMeTextField = {
+        let passwordText = ConnectMeTextField()
         passwordText.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: ConnectMeConstants.connectMeColours.lightBlueColour])
-        passwordText.font = UIFont.boldSystemFont(ofSize: 22)
-        passwordText.textAlignment = .left
         passwordText.isSecureTextEntry = true
-        passwordText.translatesAutoresizingMaskIntoConstraints = false
-        
         return passwordText
     }()
     
     let loginButton : LoginButton = {
         let login = LoginButton()
         login.setTitle("Login", for: .normal)
-        login.translatesAutoresizingMaskIntoConstraints = false
-        login.titleLabel?.font = UIFont.systemFont(ofSize: 25)
-        login.setTitleColor(.gray, for: .normal)
-        login.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
-        login.layer.cornerRadius = 20
-        login.layer.borderColor = UIColor.clear.cgColor
         login.buttonTapped()  //figure out how to transition the view controllers
         return login
     }()

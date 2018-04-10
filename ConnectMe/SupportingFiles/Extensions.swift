@@ -27,6 +27,16 @@ extension UITextField {
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0
     }
+    
+    func setBottomBorderSignup() {
+        self.borderStyle = .none
+        self.layer.backgroundColor = ConnectMeConstants.connectMeColours.temporaryFixSignup.cgColor  //go over a better alternative with mike [this makes border around textField appear invisible. But does not remove it]
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = ConnectMeConstants.connectMeColours.lightBlueColour.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
+    }
    
 }
 
@@ -42,7 +52,7 @@ extension UIColor {
 }
 
 extension UILabel {
-    func setBottomBorder() {
+    func setBottomBorderLabel() {
         self.layer.backgroundColor = ConnectMeConstants.connectMeColours.temporaryFixHomepageLabel.cgColor  //go over a better alternative with mike [this makes border around textField appear invisible. But does not remove it]
         self.layer.masksToBounds = false
         self.layer.shadowColor = ConnectMeConstants.connectMeColours.lightBlueColour.cgColor

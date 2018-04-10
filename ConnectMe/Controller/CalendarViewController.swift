@@ -124,7 +124,7 @@ extension CalendarViewController : JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         colourBackgroundCellSelected(view: cell, cellState: cellState)
         handleCellTextColour(view: cell, cellState: cellState)
-
+        
         self.timeLabel.isHidden = true
         self.nameLabel.isHidden = true 
     }
