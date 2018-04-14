@@ -14,9 +14,9 @@ class SignupViewController: UIViewController {
         let banner = UILabel()
         banner.text = "Start Receiving Friendly Reminders Today!"
         banner.textColor = ConnectMeConstants.connectMeColours.lightBlueColour
-        banner.font = UIFont.boldSystemFont(ofSize: 90)
+        banner.font = UIFont.boldSystemFont(ofSize: 50)
         banner.translatesAutoresizingMaskIntoConstraints = false
-        banner.numberOfLines = 2
+        banner.numberOfLines = 3
         banner.adjustsFontSizeToFitWidth = true
         return banner
     }()
@@ -68,8 +68,8 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true 
-        self.view.backgroundColor = UIColor(hex: 0x260099)
+        self.navigationController?.navigationBar.isHidden = false
+        self.view.backgroundColor = UIColor(hex: 0x282E82)
 
         self.view.addSubview(topBanner)
         self.view.addSubview(facebookLogin)
@@ -100,7 +100,7 @@ class SignupViewController: UIViewController {
                                        toItem: self.view,
                                        attribute: .top,
                                        multiplier: 1,
-                                       constant: 50)
+                                       constant: 100)
         yAxis.isActive = true
         
         let leadingAxis = NSLayoutConstraint(item: topBanner,
@@ -243,24 +243,6 @@ class SignupViewController: UIViewController {
     private func setupSignupButtonLayout() {
         let xAxis = signupButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         xAxis.isActive = true
-        
-        
-//        let signupButtonTrailing = NSLayoutConstraint(item: signupButton,
-//                                                     attribute: .trailing,
-//                                                     relatedBy: .equal,
-//                                                     toItem: self.view,
-//                                                     attribute: .trailing,
-//                                                     multiplier: 1, constant: -200)
-//        signupButtonTrailing.isActive = true
-//
-//        let signupButtonLeading = NSLayoutConstraint(item: signupButton,
-//                                                    attribute: .leadingMargin,
-//                                                    relatedBy: .equal,
-//                                                    toItem: self.view,
-//                                                    attribute: .leading,
-//                                                    multiplier: 1, constant: 80)
-//        signupButtonLeading.isActive = true
-        
         
         
         let yAxis = NSLayoutConstraint(item: signupButton,

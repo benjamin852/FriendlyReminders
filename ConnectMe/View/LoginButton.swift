@@ -9,17 +9,15 @@
 import UIKit
 
 class LoginButton: UIButton {
-//    var action: (()->())?
     
     func buttonTapped() {
-//        self.action = action
         self.addTarget(self, action: #selector(LoginButton.tapped), for: .touchUpInside)
-        
     }
     
     @objc func tapped() {
-       print ("tap is received")
-        //figure out how to use this to segue to the home VC
+        print ("tap is received")
+        //add to notif center
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "pushToHomeFromLogin"), object: nil)
     }
     
     override init(frame: CGRect) {
@@ -30,8 +28,8 @@ class LoginButton: UIButton {
         self.layer.cornerRadius = 13
         self.layer.borderColor = UIColor.clear.cgColor
         self.translatesAutoresizingMaskIntoConstraints = false
-
     }
+  
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -77,19 +77,20 @@ class LoginViewController: UIViewController {
         signupNowButton.translatesAutoresizingMaskIntoConstraints = false
         signupNowButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         signupNowButton.setTitleColor(ConnectMeConstants.connectMeColours.lightBlueColour, for: .normal)
+            signupNowButton.addTarget(self, action: #selector(pushToSignup), for: .touchUpInside)
         return signupNowButton
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(logoImageView)
-        view.addSubview(usernameTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(loginButton)
-        view.addSubview(forgotPasswordButton)
-        view.addSubview(facebookLogin)
-        view.addSubview(dontHaveAccount)
-        view.addSubview(signupNow)
+        self.view.addSubview(logoImageView)
+        self.view.addSubview(usernameTextField)
+        self.view.addSubview(passwordTextField)
+        self.view.addSubview(loginButton)
+        self.view.addSubview(forgotPasswordButton)
+        self.view.addSubview(facebookLogin)
+        self.view.addSubview(dontHaveAccount)
+        self.view.addSubview(signupNow)
         self.setupLogoLayout()
         self.setupLayoutTextFields()
         self.setupButtonLayout()
@@ -98,7 +99,20 @@ class LoginViewController: UIViewController {
         let background = CAGradientLayer().backgroundColour()
         background.frame = self.view.bounds
         self.view.layer.insertSublayer(background, at: 0)
-
+       
+//        receive notif and call func
+        NotificationCenter.default.addObserver(self, selector: #selector(pushToHomeVC(notif:)), name: NSNotification.Name(rawValue: "pushToHomeFromLogin"), object: nil)
+        
+    }
+    
+    @objc func pushToHomeVC(notif: NSNotification) {
+        let homeController = HomePageViewController()
+        navigationController?.pushViewController(homeController, animated: true)
+    }
+    
+    @objc func pushToSignup() {
+        let signupController = SignupViewController()
+        navigationController?.pushViewController(signupController, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

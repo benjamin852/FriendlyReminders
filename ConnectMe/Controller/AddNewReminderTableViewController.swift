@@ -267,11 +267,11 @@ extension AddNewReminderVC:ClickedDelegate {
             print("Timezone")
         case .isRepeat:
             print("IsRepeat")
-            //            if menuButton.backgroundColor == ConnectMeConstants.connectMeColours.darkBlueColour {
-            //                menuButton.backgroundColor = UIColor.green
-            //            } else {
-            //                menuButton.backgroundColor = ConnectMeConstants.connectMeColours.darkBlueColour
-            //            }
+//            if menuButton.backgroundColor == ConnectMeConstants.connectMeColours.darkBlueColour {
+//                menuButton.backgroundColor = UIColor.green
+//            } else {
+//                menuButton.backgroundColor = ConnectMeConstants.connectMeColours.darkBlueColour
+//            }
         }
         
         

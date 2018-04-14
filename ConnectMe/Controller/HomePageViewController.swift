@@ -55,28 +55,33 @@ class HomePageViewController: UIViewController {
   
     
     lazy var calendarButton : ConnectMeBarButton = {
-        let calendar = ConnectMeBarButton.init(title: "Calendar", style: UIBarButtonItemStyle.plain, target: self, action: #selector(buttonTapped))
+        let calendar = ConnectMeBarButton.init(title: "Calendar", style: UIBarButtonItemStyle.plain, target: self, action: #selector(calendarButtonTapped))
         return calendar
     }()
     
-    lazy var settingsButton : ConnectMeBarButton = {
-        let settings = ConnectMeBarButton.init(title: "Settings", style: UIBarButtonItemStyle.plain, target: self, action: #selector(buttonTapped))
-        return settings
-    }()
-    
-    
     lazy var supportButton : ConnectMeBarButton = {
-        let support = ConnectMeBarButton.init(title: "Support", style: UIBarButtonItemStyle.plain, target: self, action: #selector(buttonTapped))
+        let support = ConnectMeBarButton.init(title: "Support", style: UIBarButtonItemStyle.plain, target: self, action: #selector(supportButtonTapped))
         return support
     }()
     
+    
+    lazy var logoutButton : ConnectMeBarButton = {
+        let logout = ConnectMeBarButton.init(title: "Logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(buttonTapped))
+        return logout
+    }()
+    
     @objc func buttonTapped() {
-        print ("That guy who shoved me in Eilat is a huge pussy")
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func calendarButtonTapped() {
-//        let calendarViewController = CalendarViewController()
-//        self.navigationController?.pushViewController(calendarViewController, animated: true)
+        let calendarVC = CalendarViewController()
+        self.navigationController?.pushViewController(calendarVC, animated: true)
+    }
+    
+    @objc func supportButtonTapped() {
+        let supportVC = SupportViewController()
+        self.navigationController?.pushViewController(supportVC, animated: true)
     }
    
     override func viewDidLoad() {
@@ -89,40 +94,18 @@ class HomePageViewController: UIViewController {
         let background = CAGradientLayer().backgroundColour()
         background.frame = self.view.bounds
         self.view.layer.insertSublayer(background, at: 0)
-        
-
-//        NotificationCenter.default.addObserver(self, selector: #selector(openTimePicker(notif:)), name: NSNotification.Name(rawValue: "timeTapped"), object: nil)
     }
-    //    @objc func openTimePicker(notif: NSNotification) {
-    //        timePicker.backgroundColor = ConnectMeConstants.connectMeColours.lightBlueColour
-    //        timePicker.translatesAutoresizingMaskIntoConstraints = false
-    //        self.view.addSubview(timePicker)
-    //
-    //        let bottom = NSLayoutConstraint(item: timePicker, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
-    //        bottom.isActive = true
-    //
-    //        let centerX = NSLayoutConstraint(item: timePicker, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
-    //        centerX.isActive = true
-    //    }
-
- 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.leftBarButtonItems = [addReminder, calendarButton, settingsButton, supportButton]
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.leftBarButtonItems = [addReminder, calendarButton, supportButton, logoutButton]
         self.navigationController?.navigationBar.barTintColor = ConnectMeConstants.connectMeColours.whiteColor
-        
-        let height : CGFloat = 30
-        let bounds = self.navigationController!.navigationBar.bounds
-        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
-
     }
  
-    
-
-    
     private func setupLabels() {
         quoteTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         quoteTextLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

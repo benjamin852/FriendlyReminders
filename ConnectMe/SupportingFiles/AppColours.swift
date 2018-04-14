@@ -16,7 +16,7 @@ struct ConnectMeConstants {
         static let temporaryFixUsername = UIColor(hex: 0x7F80B3)
         static let temporaryFixPassword = UIColor(hex: 0x6565A3)
         static let whiteColor = UIColor(hex: 0xE0E0ED)
-        static let temporaryFixSignup = UIColor(hex: 0x260099)
+        static let temporaryFixSignup = UIColor(hex: 0x282E82)
         
         static let temporaryFixHomepageLabel = UIColor(hex : 0xABABCC)
     }

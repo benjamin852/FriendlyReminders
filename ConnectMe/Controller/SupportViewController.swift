@@ -49,7 +49,7 @@ class SupportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        self.view.backgroundColor = UIColor(hex: 0x260099)
+        self.view.backgroundColor = UIColor(hex: 0x383F9C)
         
         self.view.addSubview(supportLabel)
         self.view.addSubview(emailButton)
@@ -75,7 +75,7 @@ class SupportViewController: UIViewController {
                                        toItem: assistanceText,
                                        attribute: .top,
                                        multiplier: 1,
-                                       constant: -130)
+                                       constant: -70)
         yAxis.isActive = true
     }
     

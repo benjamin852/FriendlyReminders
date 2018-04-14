@@ -17,6 +17,7 @@ class ConnectMeTextField: UITextField {
         self.textAlignment = .left
         self.textColor = ConnectMeConstants.connectMeColours.lightBlueColour
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.adjustsFontSizeToFitWidth = true 
         //        usernameText.isUserInteractionEnabled = true          <-- not working?
     }
     

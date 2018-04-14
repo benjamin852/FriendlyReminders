@@ -18,6 +18,16 @@ extension UITextField {
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0
     }
+//    func setBottomBorderMikes() {
+//        self.borderStyle = .none
+//        self.layer.backgroundColor = BingoPalette.bingoCellBackgroundColor.cgColor
+//        self.layer.masksToBounds = false
+//        self.layer.shadowColor = UIColor.white.cgColor
+//        self.layer.shadowOffset = CGSize(width: 0.0, height: 0.5)
+//        self.layer.shadowOpacity = 1.0
+//        self.layer.shadowRadius = 0.0
+//    }
+
     func setBottomBorderPas() {
         self.borderStyle = .none
         self.layer.backgroundColor = ConnectMeConstants.connectMeColours.temporaryFixPassword.cgColor  //go over a better alternative with mike [this makes border around textField appear invisible. But does not remove it]

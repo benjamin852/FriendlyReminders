@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let homepage = SignupViewController(nibName: nil, bundle: nil)
+        let homepage = LoginViewController(nibName: nil, bundle: nil)
         let navigationController = UINavigationController(rootViewController: homepage)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
