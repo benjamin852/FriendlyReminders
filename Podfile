@@ -7,6 +7,7 @@ target 'ConnectMe' do
 
   # Pods for ConnectMe
   pod 'JTAppleCalendar', '~> 7.0'
+  pod 'SwiftyJSON', '~> 4.0'
 
   target 'ConnectMeTests' do
     inherit! :search_paths
