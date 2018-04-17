@@ -15,6 +15,7 @@ class User {
     }
 }
 
+// Parse JSON into a User Object
 extension User {
     convenience init?(json: JSON) {
         guard let name = json["name"].string else {
