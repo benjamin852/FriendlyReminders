@@ -1,4 +1,3 @@
-import Foundation
 import SwiftyJSON
 
 enum Reocurring: String {
