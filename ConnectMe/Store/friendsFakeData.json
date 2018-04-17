@@ -1,0 +1,14 @@
+{
+    "friends": [
+        {
+            "name": "John Smith",
+            "notes": "Met in Europe",
+            "birthday": "2019-01-09T00:00:00.000Z"
+        },
+        {
+            "name": "John Smith",
+            "notes": "Met in Europe",
+            "birthday": "2019-01-09T00:00:00.000Z"
+        }
+    ]
+}
