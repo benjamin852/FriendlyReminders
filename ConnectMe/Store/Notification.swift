@@ -23,8 +23,8 @@ class Notification {
 
 extension Notification {
     convenience init?(json: JSON) {
-        guard let isReocurring = json["isReocurring"].string else {
-            print("Error parsing game object for key: name")
+        guard let isReocurring = json["isRecurring"].string else {
+            print("Error parsing game object for key: isRecurring")
             return nil
         }
         
@@ -38,12 +38,12 @@ extension Notification {
             return nil
         }
       
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        let date = dateFormatter.date(from: dateStr)!
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+//        let date = dateFormatter.date(from: dateStr)!
         
         
-        self.init(isReocurring: Reocurring(rawValue: isReocurring)!, notes: notes, date: date)
+        self.init(isReocurring: Reocurring(rawValue: isReocurring)!, notes: notes, date: Date())
     }
 }

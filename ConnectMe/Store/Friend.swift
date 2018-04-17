@@ -26,13 +26,13 @@ extension Friend {
         }
         
         var birthday: Date?
-        if let birthdayStr = json["birthday"].string{
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            birthday = dateFormatter.date(from: birthdayStr)!
-        }
+//        if let birthdayStr = json["birthday"].string{
+//            
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+//            birthday = dateFormatter.date(from: birthdayStr)!
+//        }
         
         self.init(name: name, notes: notes, birthday: birthday)
     }

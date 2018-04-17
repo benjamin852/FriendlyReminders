@@ -1,13 +1,13 @@
 {
     "notifications": [
         {
-            "isReoccuring": "no",
-            "notes": null,
+            "isRecurring": "no",
+            "notes": "null",
             "date": "2018-09-16T22:23:08.350Z"
         },
         {
-            "isReoccuring": "no",
-            "notes": null,
+            "isRecurring": "no",
+            "notes": "null",
             "date": "2018-09-16T22:23:08.350Z"
         }
     ]
