@@ -13,8 +13,9 @@ class Friend {
     }
 }
 
+// Parse JSON into a Friend Object
 extension Friend {
-    convenience init?(json: JSON) {
+    convenience init?(json: JSON, formatter: DateFormatter) {
         guard let name = json["name"].string else {
             print("Error parsing game object for key: name")
             return nil
@@ -25,14 +26,13 @@ extension Friend {
             return nil
         }
         
+        // User may not have added friends birthday
         var birthday: Date?
-//        if let birthdayStr = json["birthday"].string{
-//            
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-//            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-//            birthday = dateFormatter.date(from: birthdayStr)!
-//        }
+        if let birthdayStr = json["birthday"].string{
+            if let formattedDate = formatter.date(from: birthdayStr) {
+                birthday = formattedDate
+            }
+        }
         
         self.init(name: name, notes: notes, birthday: birthday)
     }

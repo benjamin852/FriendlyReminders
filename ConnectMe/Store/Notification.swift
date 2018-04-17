@@ -21,8 +21,9 @@ class Notification {
     }
 }
 
+// Parse JSON into a Notifcation Object
 extension Notification {
-    convenience init?(json: JSON) {
+    convenience init?(json: JSON, formatter: DateFormatter) {
         guard let isReocurring = json["isRecurring"].string else {
             print("Error parsing game object for key: isRecurring")
             return nil
@@ -33,17 +34,18 @@ extension Notification {
             return nil
         }
         
+        // A reminder has to have a date
         guard let dateStr = json["date"].string else {
             print("Error parsing game object for key: date")
             return nil
         }
-      
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-//        let date = dateFormatter.date(from: dateStr)!
         
-        
-        self.init(isReocurring: Reocurring(rawValue: isReocurring)!, notes: notes, date: Date())
+        // If the date cannot be translated the remidner is useless
+        guard let date = formatter.date(from: dateStr) else {
+            print("Date could not be formatted check the date server is returning")
+            return nil
+        }
+
+        self.init(isReocurring: Reocurring(rawValue: isReocurring)!, notes: notes, date: date)
     }
 }

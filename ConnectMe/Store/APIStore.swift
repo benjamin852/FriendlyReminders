@@ -34,14 +34,17 @@ struct APIStore {
                 fatalError("Cannot parse notifications array")
             }
             
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+
             for json in friendsArray {
-                if let friend = Friend(json: json) {
+                if let friend = Friend(json: json, formatter: formatter) {
                     friends.append(friend)
                 }
             }
             
             for json in notificationsArray {
-                if let notification = Notification(json: json) {
+                if let notification = Notification(json: json, formatter: formatter) {
                     notifications.append(notification)
                 }
             }
