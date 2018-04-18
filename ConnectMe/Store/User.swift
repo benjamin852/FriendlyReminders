@@ -19,7 +19,7 @@ class User {
 extension User {
     convenience init?(json: JSON) {
         guard let name = json["name"].string else {
-            print("Error parsing game object for key: name")
+            print("Error parsing game object for key: name")                    
             return nil
         }
         

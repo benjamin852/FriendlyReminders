@@ -99,6 +99,18 @@ class CalendarViewController: UIViewController {
 
 
 extension CalendarViewController : JTAppleCalendarViewDelegate {
+    
+    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+        
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
+        cell.dateLabel.text = cellState.text
+        
+        colourBackgroundCellSelected(view: cell, cellState: cellState)
+        handleCellTextColour(view: cell, cellState: cellState)
+        
+        
+    }
+    
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell

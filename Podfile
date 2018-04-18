@@ -6,7 +6,7 @@ target 'ConnectMe' do
   use_frameworks!
 
   # Pods for ConnectMe
-  pod 'JTAppleCalendar', '~> 7.0'
+  pod 'JTAppleCalendar', '~> 7.1.0'
   pod 'SwiftyJSON', '~> 4.0'
 
   target 'ConnectMeTests' do

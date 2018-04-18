@@ -75,8 +75,10 @@ class HomePageViewController: UIViewController {
     }
     
     @objc func calendarButtonTapped() {
-        let calendarVC = CalendarViewController()
-        self.navigationController?.pushViewController(calendarVC, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarViewController")
+        self.navigationController!.pushViewController(calendarVC, animated: true)
+     
     }
     
     @objc func supportButtonTapped() {
